@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker, DeclarativeBase
 
-DATABASE_URL = "postgresql://postgres:admin@localhost/tickets_orm" # перепроверить!!
+DATABASE_URL = "postgresql://postgres:admin@localhost/tickets_orm"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base = DeclarativeBase()
@@ -49,7 +49,7 @@ class EventTicket(Base):
     __tablename__ = "events_tickets"
 
     id = Column(Integer, primary_key=True, index=True)
-    event_id = Column(Integer, ForeignKey("events.id", ondelete="CASCADE")) # разобраться!
+    event_id = Column(Integer, ForeignKey("events.id", ondelete="CASCADE"))
     ticket_id = Column(Integer, ForeignKey("tickets.id", ondelete="CASCADE"))
 
     event = relationship("Event", back_populates="tickets")
