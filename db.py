@@ -105,6 +105,14 @@ def search_event(event_title):
     with SessionLocal() as session:
         return session.query(Event).filter(Event.title.ilike(f"%{event_title}%")).all()
 
+def search_seat(seat_name):
+    with SessionLocal() as session:
+        return session.query(Seat).filter(Seat.seat_name.ilike(f"%{seat_name}%")).all()
+
+def search_ticket(ticket_name):
+    with SessionLocal() as session:
+        return session.query(Ticket).filter(Ticket.ticket_name.ilike(f"%{ticket_name}%")).all()
+
 def delete_event(event_title):
     with SessionLocal() as session:
         event = session.query(Event).filter(Event.title==event_title).first()

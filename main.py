@@ -153,7 +153,7 @@ def app():
 
             seats = db.search_seat(query)
             for seat in seats:
-                print(f"ID: {seat[0]} - Title: {seat[1]}.")
+                print(f"ID: {seat.id} - Title: {seat.seat_name}.")
             print("=" * 20)
 
         elif cmd == 13:
@@ -162,7 +162,7 @@ def app():
 
             tickets = db.search_ticket(query)
             for ticket in tickets:
-                print(f"ID: {ticket[0]} - Title: {ticket[1]}.")
+                print(f"ID: {ticket.id} - Title: {ticket.ticket_name}.")
             print("=" * 20)
 
         elif cmd == 14:
